@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>proj</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">PROJ: Adventure Time</h1>
+
+<p><strong>Due on Saturday, December 14th at 11:59PM</strong></p>
+
+<p><em>v1.1.1</em></p>
+
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Changes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><em>1.1.1</em></td>
+<td>120620191302</td>
+<td>Typo corrected. Plane.java:129<br>Should read, &quot;Do <strong>NOT</strong> make a new Adventurer...&quot;</td>
+</tr>
+<tr>
+<td><em>1.1</em></td>
+<td>120420191134</td>
+<td>Due date corrected.<br>Detailed actions section.</td>
+</tr>
+<tr>
+<td><em>1.0</em></td>
+<td>120420191000</td>
+<td>Initial release.</td>
+</tr>
+</tbody>
+</table>
+
+<p>In this assignment you will complete a simple text-based game called Adventure Time. The adventurer (<code>@</code>) will move around the board destroying tired enemies (<code>$</code> <code>&amp;</code>) while avoiding logs (<code>=</code>). This assignment will test your ability to grasp object-oriented programming and algorithmic thinking. </p>
+
+<ul class="toc">
+<li>
+<a href="#toc_0">PROJ: Adventure Time</a>
+<ul>
+<li>
+<a href="#toc_1">Before Starting</a>
+<ul>
+<li>
+<a href="#toc_2">It Will Take Time</a>
+</li>
+<li>
+<a href="#toc_3">Compile Often</a>
+</li>
+<li>
+<a href="#toc_4">A Note on Cheating</a>
+</li>
+<li>
+<a href="#toc_5">Late Work</a>
+</li>
+<li>
+<a href="#toc_6">Getting Help</a>
+</li>
+<li>
+<a href="#toc_7">Submitting</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_8">Game Basics</a>
+<ul>
+<li>
+<a href="#toc_9">Game Legend</a>
+</li>
+<li>
+<a href="#toc_10">Goal of the Game</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_11">Rules of the Game</a>
+<ul>
+<li>
+<a href="#toc_12">Pieces</a>
+</li>
+<li>
+<a href="#toc_13">Actions</a>
+<ul>
+<li>
+<a href="#toc_14">Movement</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_15">Codebase</a>
+<ul>
+<li>
+<a href="#toc_16">Overview</a>
+</li>
+<li>
+<a href="#toc_17">Details</a>
+<ul>
+<li>
+<a href="#toc_18"><code>AdventureTime</code></a>
+</li>
+<li>
+<a href="#toc_19"><code>Plane</code></a>
+</li>
+<li>
+<a href="#toc_20"><code>Piece</code></a>
+</li>
+<li>
+<a href="#toc_21"><code>Adventurer</code>, <code>SneakySnek</code>, <code>Sloth</code>, <code>Log</code></a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_22">Instructions</a>
+<ul>
+<li>
+<a href="#toc_23">Code Base Understanding</a>
+</li>
+<li>
+<a href="#toc_24">Complete Missing Code</a>
+</li>
+<li>
+<a href="#toc_25">Add Features</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_26">Grading</a>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<h2 id="toc_1">Before Starting</h2>
+
+<h3 id="toc_2">It Will Take Time</h3>
+
+<p>It will take time to understand the code and the interactions between the classes. I suggest drawing a UML diagram of all the classes first. Read the code and understand what is happening/should be happening at each step. Once you have a clear picture of what should the functionality should be, then begin writing code. </p>
+
+<p>I also suggest writing your algorithms out in comments before running it. Gather your thoughts and make sure what you are doing makes sense. </p>
+
+<p>Please don&#39;t put the project off. It will require a significant amount of work. Try to look at it on the daily, even if not coding anything.</p>
+
+<h3 id="toc_3">Compile Often</h3>
+
+<div><pre><code class="language-none">$ javac *.java
+$ java AdventureTime</code></pre></div>
+
+<h3 id="toc_4">A Note on Cheating</h3>
+
+<p>Cheating on the project will result in a <em>double zero</em>. A <em>double zero</em> is a 0/100 grade on the PROJ portion of the course along with the addition of a 0/100 exam score. This harsh punishment is to dissuade improper collaboration. The incident will also be reported to the Student Conduct Office.  </p>
+
+<h3 id="toc_5">Late Work</h3>
+
+<p>Since the assignment is due on the literally the last day of the semester I cannot accept any late work. </p>
+
+<h3 id="toc_6">Getting Help</h3>
+
+<p>I will be around at various times this week and finals week. Ask early, I can&#39;t help you at the last second. </p>
+
+<h3 id="toc_7">Submitting</h3>
+
+<p>Submit through BitBucket on a branch called <code>PROJ</code>. </p>
+
+<h2 id="toc_8">Game Basics</h2>
+
+<p>A screenshot the game screen:</p>
+
+<div><pre><code class="language-none"> @ . . . . . . . . . . . . . . . = . $ .    kscrivs
+ . . . . &amp;!. &amp;!. . . . . . . . . . . = .    HP: 10
+ . . . . . . . . . . . . . . . . $ . . .    Sneaky Sneks: 10
+ . = . . . . . . = . $ . . . . . = . . .    Sloths: 10
+ . . . . . . . . . . . . . . . . . . &amp;!. 
+ . . . . &amp;!. . . . = $ . . . . . . . . . 
+ . . . . . . . . = . . . . . . . . . . . 
+ . . . . . . . . . &amp;!. . . . . . . . . . 
+ . . . . . . . . . . . &amp;!. = . . = . . . 
+ . . . . . . . . . . . . . . . . . . . . 
+ . . . . . . $ . . . . . . . . . . . . . 
+ . . . . . . . . . . . . = . . . . . . = 
+ . . . = . . . . . . . . . . = = . . . . 
+ . . . . . . = . . . . . . . . . . . . . 
+ . . . . . . . . . . . . . = $ . . . $ . 
+ . . . . &amp;!. &amp;!. . . $ . . . &amp;!. . . . . 
+ . . . . . . . . . . . = . . . . . . . . 
+ . . . . . . . . . . . &amp;!. . . = . . . . 
+ . . . . . . . . . . . . . . . . $ . . $ 
+ = . . . . . . . . = . . . . . . . . . . 
+
+Choose your destiny, adventurer.
+    1 - North
+    2 - South
+    3 - East
+    4 - West
+    5 - Over adventuring.
+What shall it be? [1-5] </code></pre></div>
+
+<h3 id="toc_9">Game Legend</h3>
+
+<table>
+<thead>
+<tr>
+<th>Character</th>
+<th>Piece</th>
+<th>Lore</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>.</code></td>
+<td><code>null</code> - Empty Space</td>
+<td>Some often refer to the landscape as the plains of despair. Unsure of what has become of this great land, a lonely adventurer returns.</td>
+</tr>
+<tr>
+<td><code>@</code></td>
+<td><code>Adventurer</code> - The character you control.</td>
+<td><em>&quot;My search will not be in vain. Look to my coming, at first light, on the fifteenth week. At dawn, look to the Northwest.&quot;</em> -Adventurer</td>
+</tr>
+<tr>
+<td><code>=</code></td>
+<td><code>Log</code> - Fallen tree.</td>
+<td>Remains of what was once a beautiful forest teeming with life. Those who can speak with the logs have heard rumblings of the adventurers return. The logs are strangely optimistic, for a log that is.</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td><code>SneakySnek</code> - A snake. It is sneaky.</td>
+<td>The demise of the forest and fall of the great flying Beagles lead to a sneak attack by the snakes. They do not have anything nice to say to the logs.</td>
+</tr>
+<tr>
+<td><code>&amp;</code></td>
+<td><code>Sloth</code> - Don&#39;t call us slow.</td>
+<td>The once great tree sloth have become a bunch of jerks. Many believe it is because they are tired all the time. A great wizard once said something about some sacred Spirit Elk or something. Could have something to do with that?</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_10">Goal of the Game</h3>
+
+<p>Move around and the rid the plains of sneaky sneks and sloths. Even though the snakes and sloths never did anything to hurt us. </p>
+
+<h2 id="toc_11">Rules of the Game</h2>
+
+<h3 id="toc_12">Pieces</h3>
+
+<ul>
+<li><p>Adventurer</p>
+
+<ul>
+<li>Always moves first per iteration. </li>
+<li>May move north, south, east or west. Up, down, right, left.</li>
+<li>May not move diagonally. </li>
+<li>Cannot move off of the map. </li>
+<li>Invincible, though may take damage.</li>
+<li>Never tires. </li>
+</ul></li>
+<li><p>Log</p>
+
+<ul>
+<li>Never moves. Never tires.</li>
+<li>Can be tripped over (resulting in 1 damage to hitpoints).</li>
+<li>Does nothing, other than exist. </li>
+</ul></li>
+<li><p>Sneaky Snek</p>
+
+<ul>
+<li>Moves three turns before tiring. </li>
+<li>Does not move for two turns while resting.</li>
+<li>Moves in a random direction.</li>
+<li>May move north, south, east or west. Up, down, right, left.</li>
+<li>May not move diagonally. </li>
+<li>Can be killed if tired. </li>
+<li>Can deal two damage to the adventurers hitpoints if not tired. </li>
+</ul></li>
+<li><p>Sloth</p>
+
+<ul>
+<li>Always tired. </li>
+<li>Has a 1/3 chance of moving per turn.</li>
+<li>May move north, south, east or west. Up, down, right, left.</li>
+<li>May not move diagonally. </li>
+<li>Can be killed if tired (always).</li>
+<li>Too tired to deal damage to the adventure. </li>
+</ul></li>
+</ul>
+
+<h3 id="toc_13">Actions</h3>
+
+<p>Each piece performs their action during each iteration. The adventurer must always go first. </p>
+
+<p>View the <code>act()</code> method from the <code>Plane</code> class to understand what order the actions are taken in. There is a precondition that the Piece not act if has already acted. You should be able to discern as to why a Piece may potentially act more than once.</p>
+
+<p><code>Log</code>&#39;s action should be empty. They do not perform any action.</p>
+
+<p>Note that for any movement by enemies the destination must be empty.</p>
+
+<p><code>SneakySnek</code>&#39;s need to keep track of the number of moves they make. A snek will move three times before becoming tired. The snek should move attempt to move in a random direction and the move counter should only be incremented in the event that the snek successfully moves. Once tired, the snek must rest for two moves during which it is vulnerable to attacks. </p>
+
+<p><code>Sloth</code>&#39;s are always tired so the boolean tired should never change. A sloth has a 1/3 chance of moving in a random direction. </p>
+
+<p>The <code>Adventurer</code> can obtain the move selected by the user from the <code>Plane</code> class. The adventurer should try to move to a location, if that does not work, it should try to attack the location. If the move/attack succeeds, then the position should be updated. </p>
+
+<h4 id="toc_14">Movement</h4>
+
+<p>When calculating the coordinates for movement in the <code>act()</code> methods, you should start with the x, y location the Piece is currently at. Save these values as fromX and fromY. Set toX and toY as the same value as fromX and fromY. Then update them according to the direction (note only one value changes per direction). </p>
+
+<p>Example, if you&#39;re on 0,0 and you move SOUTH. Then the result should be 0,1.</p>
+
+<h2 id="toc_15">Codebase</h2>
+
+<h3 id="toc_16">Overview</h3>
+
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Purpose</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>AdventureTime</code></td>
+<td>The main game class. Runs the game.</td>
+</tr>
+<tr>
+<td><code>Plane</code></td>
+<td>The plane contains all the pieces in the game and enforces most of the rules on the board.</td>
+</tr>
+<tr>
+<td><code>Piece</code></td>
+<td>An abstract class describing the general functionality of all the pieces.</td>
+</tr>
+<tr>
+<td><code>Adventurer</code>, <code>SneakySnek</code>, <code>Sloth</code>, <code>Log</code></td>
+<td>Extends Piece and implements the abstract methods and any additional requirements.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_17">Details</h3>
+
+<h4 id="toc_18"><code>AdventureTime</code></h4>
+
+<p>The AdventureTime class simply controls the game. It will ask the user for a name, display the current map, ask the user for a direction to take, and ask the <code>Plane</code> class to act. It will do this until the game ends or the player is exhausted (quits). </p>
+
+<h4 id="toc_19"><code>Plane</code></h4>
+
+<p>The Plane class models a two-dimensional plane on which the game will be played. You will notice this class has many fields. The <code>plane</code> field is a two dimensional array of Pieces. The size of this plane is determined by the class fields <code>width</code> and <code>height</code>. It is important we keep track of the adventurer piece, so another field is an object reference to our adventurer. There are also many constants declared for default values. Most of these are used in the Constructor methods. </p>
+
+<p>One of the most important methods for this class is <code>act()</code>. This method tells all the pieces on the plane to perform their action. You should take the time to understand what is happening in this method.</p>
+
+<p>The next methods you should focus on understanding are:</p>
+
+<ol>
+<li><code>isEmpty()</code></li>
+<li><code>isOnPlane()</code></li>
+<li><code>setupPlane()</code></li>
+<li><code>rand()</code></li>
+<li><code>randomDirection()</code></li>
+<li><code>move()</code></li>
+<li><code>toString()</code></li>
+</ol>
+
+<p>You should start thinking about how the <code>placePiece()</code> and <code>attackPieceAt()</code> methods should work. </p>
+
+<h4 id="toc_20"><code>Piece</code></h4>
+
+<p>Piece is an abstract class that models what a Piece on the board should implement as a minimum. You will have to implement the fields needed. There will need to be a type, x and y coordinate, and booleans for whether the piece is tired and has acted yet.</p>
+
+<p>Note that Piece is an abstract class so the act() method does not need to be implemented in Piece. It must be implemented by any subclass.</p>
+
+<h4 id="toc_21"><code>Adventurer</code>, <code>SneakySnek</code>, <code>Sloth</code>, <code>Log</code></h4>
+
+<p>I suggest you implement, test, and debug these subclasses of Piece in the following order (meaning, the class should be completely working as you intend before moving on).</p>
+
+<ol>
+<li>Log</li>
+<li>Sloth</li>
+<li>SneakySnake</li>
+<li>Adventurer</li>
+</ol>
+
+<h2 id="toc_22">Instructions</h2>
+
+<h3 id="toc_23">Code Base Understanding</h3>
+
+<ol>
+<li>Read and comprehend the code base before making any edits. </li>
+<li>Run the code and see what it does. (Not much so far).</li>
+<li>Decide on what you should code before making edits. Ensure you know what is going on.</li>
+<li>Compile, run, and test every change you make before continuing to the next task.</li>
+</ol>
+
+<h3 id="toc_24">Complete Missing Code</h3>
+
+<ol>
+<li>Complete the <code>Piece</code> class.</li>
+<li>Start work on <code>placePiece</code> from <code>Plane</code>. Test to see if an adventurer appears.</li>
+<li>Add <code>Log</code>, <code>Sloth</code>, and <code>SneakySnek</code>. Leave the <code>act()</code> methods empty for now. </li>
+<li>Complete the <code>placePiece</code> method. Do the pieces appear on the board now?</li>
+<li>Begin work on the <code>act()</code> methods. I suggest doing Adventurer last as it is the most complicated. Aside from Log which does nothing, I imagine Sloth is the next easiest. </li>
+<li>Complete the <code>attackPieceAt()</code> method. </li>
+</ol>
+
+<h3 id="toc_25">Add Features</h3>
+
+<p>Implement <em>at least</em> two of the following game features.</p>
+
+<ol>
+<li>Ensure the game ends when the Adventurer has killed all the Sneaky Sneks and Sloths.</li>
+<li>Ensure the game ends if the Adventurers hitpoints drops below zero.</li>
+<li>Add constructors to <code>AdventureTime</code> and <code>Plane</code> so that the user may use other options other than the default values. </li>
+<li>Add the ability to save and continue the game. (Write state information to a file and read it upon restart). </li>
+<li>Add user defined exceptions to the game to include warnings. Such as illegal move.</li>
+<li>Create another Piece called a Stalker that always moves towards the Adventurer.</li>
+<li>If something is not on this list but you think it is interesting, I can give you credit upon approval of the idea. </li>
+</ol>
+
+<h2 id="toc_26">Grading</h2>
+
+<ul>
+<li>Did you use the provided methods correctly?</li>
+<li>Do not modify any the base code unless specified. </li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Points</th>
+<th>Task</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>10</td>
+<td><code>Piece</code> class</td>
+</tr>
+<tr>
+<td>20</td>
+<td><code>placePiece()</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>Log</code></td>
+</tr>
+<tr>
+<td>10</td>
+<td><code>Sloth</code></td>
+</tr>
+<tr>
+<td>15</td>
+<td><code>SneakySnek</code></td>
+</tr>
+<tr>
+<td>20</td>
+<td><code>Adventurer</code></td>
+</tr>
+<tr>
+<td>10</td>
+<td><code>attackPieceAt()</code></td>
+</tr>
+<tr>
+<td>10</td>
+<td>Two additional features from the feature buffet.</td>
+</tr>
+</tbody>
+</table>
+
+<p>You may earn additional points for adding new and correctly working features. </p>
+
+
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+
+
+</body>
+
+</html>

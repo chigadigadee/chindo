@@ -26,60 +26,40 @@ public class Sloth extends Piece{
         
 
         //plane.rand(3)  returns an integer between 0 and 2
-        /*int randomNum = plane.rand(3);
+        int randomNum = plane.rand(3);
+        
         
         if(randomNum == 1){
         
-            
-           
-            for(int i = 0; i < plane.width; i++){
-                for(int j = 0; j < plane.height; j++){
-                    Piece p = plane[i][j];
-
-                    if(p.getType().equals(Type.SLOTH)){
-                        plane.fromX = i;
-                        plane.fromY = j;
-                        plane.toX = i;
-                        plane.toY = j;
-                        plane[i][j] = null;
+        
+                        int fromX = this.x;
+                        int fromY = this.y;
+                        int toX = fromX;
+                        int toY = fromY;
+                        
                     
                     
-                        Plane.Direction d = plane.randomDirection();
+                Plane.Direction d = plane.randomDirection();
             
-                        switch(Plane.Direction.d){
+                        switch(d){
                             case NORTH:
-                                if(plane.move(fromX, fromY, toX -= 1, toY)){
-                                    this.x = Type.SLOTH.setX(toX -= 1);
-                                    this.y = Type.SLOTH.setY(toY);
-                                    plane.placePiece(Type.SLOTH, this.x, this.y);
-                                }
+                                toY = toY - 1;
+                                plane.move(fromX, fromY, toX, toY);
                                 break;
                             
                             case EAST:
-                                if(plane.move(fromX, fromY, toX, toY += 1)){
-                                    this.x = Type.SLOTH.setX(toX);
-                                    this.y = Type.SLOTH.setY(toY += 1);
-                                    plane.placePiece(Type.SLOTH, this.x, this.y);
-                                }
+                                toX = toX + 1;
+                                plane.move(fromX, fromY, toX, toY);
                                 break;
                             
                             case SOUTH:
-                                if(plane.move(fromX, fromY, toX += 1, toY)){ 
-                                    this.x = Type.SLOTH.setX(toX += 1);
-                                    this.y = Type.SLOTH.setY(toY);
-                                    plane.placePiece(Type.SLOTH, this.x, this.y);
-                                    
-                                }
+                                toY = toY + 1;
+                                plane.move(fromX, fromY, toX, toY); 
                                 break;
                             
                             case WEST:
-                                
-                                if (plane.move(fromX, fromY, toX, toY -= 1)){
-                                    
-                                    this.x = Type.SLOTH.setX(toX);
-                                    this.y = Type.SLOTH.setY(toY -= 1);
-                                    plane.placePiece(Type.SLOTH, this.x, this.y);
-                                }
+                                toX = toX - 1;
+                                plane.move(fromX, fromY, toX, toY);
                                 break;
                         }
                     
@@ -93,9 +73,6 @@ public class Sloth extends Piece{
 
 
                 }
-            }
-
-        }*/
 
 
     }
